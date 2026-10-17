@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -38,9 +40,14 @@ jobs:
 
       - name: Publish GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
-        uses: softprops/action-gh-release@v2
-        with:
-          files: android/app/build/outputs/apk/release/*.apk
-          body: "Atmos weather app release APK"
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            --title "Atmos $GITHUB_REF_NAME" \
+            --notes "Atmos weather app release APK" \
+            --clobber \
+            android/app/build/outputs/apk/release/*.apk || \
+          gh release upload "$GITHUB_REF_NAME" \
+            android/app/build/outputs/apk/release/*.apk \
+            --clobber
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
