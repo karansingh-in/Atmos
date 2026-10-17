@@ -1,25 +1,33 @@
 {
   "expo": {
-    "name": "weather",
-    "slug": "weather",
-    "version": "1.0.0",
+    "name": "Atmos",
+    "slug": "atmos",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "backgroundColor": "#0E0E12",
+      "resizeMode": "contain"
+    },
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.axiom.atmos"
     },
     "android": {
+      "package": "com.axiom.atmos",
+      "versionCode": 2,
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#0E0E12"
       },
       "predictiveBackGestureEnabled": false
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "plugins": [
+      "expo-font"
+    ],
+    "experiments": {
+      "tsconfigPaths": true
     }
   }
 }
