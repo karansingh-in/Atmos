@@ -18,22 +18,13 @@
       "package": "com.axiom.atmos",
       "versionCode": 2,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#0E0E12"
       },
       "predictiveBackGestureEnabled": false
     },
     "plugins": [
-      "expo-font",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/splash-icon.png",
-          "imageWidth": 200,
-          "backgroundColor": "#0E0E12",
-          "resizeMode": "contain"
-        }
-      ]
+      "expo-font"
     ],
     "experiments": {
       "tsconfigPaths": true
